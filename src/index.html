@@ -8,7 +8,16 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <!-- Сіре тло під модальним віконцем -->
+    <div class="overlay" id="overlay"></div> 
+
+    <!--Саме модальне вікно-->
+    <div class="modal-window theme" id="modalWindow">
+      <p>this is modal</p>
+      <button class="close-btn" id="modalCloseBtn">close</button>
+    </div>
+
+    <!--Головна кн що відкриває модальне вікно-->
+    <button class="open-modal-btn theme" id="openModalBtn">open modal</button>
   </body>
 </html>
