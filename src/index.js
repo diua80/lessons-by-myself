@@ -162,3 +162,80 @@
 
 // 
 // Модальне вікно
+// const refs = {
+//     overlay: document.getElementById("overlay"),
+//     modalWindow: document.getElementById("modalWindow"),
+//     modalCloseBtn: document.getElementById("modalCloseBtn"),
+//     modalOpenBtn: document.getElementById("openModalBtn"),
+// }
+
+
+// const openClass = "open";
+
+// refs.modalOpenBtn.addEventListener("click", modalOpen);
+// refs.modalCloseBtn.addEventListener("click", modalClose);
+// window.addEventListener("keydown", closeModalOnEsc);
+
+// // зараз на body нема класу "open", а ми його задамо
+// function modalOpen() {
+//     document.body.classList.add(openClass); //додає клас "open"
+// }
+// function modalClose() {
+//     document.body.classList.remove(openClass); //додає клас "open"
+// }
+
+// function closeModalOnEsc(ev) {
+//     if (ev.code === "Escape") {
+//         modalClose();
+//     }
+// }
+
+// Калькулятор - задача
+
+const refs = {
+    form: document.getElementById("form"),
+    price: document.getElementById("price"),
+    amount: document.getElementById("amount"),
+    quantity: document.getElementById("quantity"),
+    total: document.getElementById("total"),
+}
+
+// цей об'єкт буде керувати рахунком totalPrice, не обов'язково створювати багато функцій, можна обійтись таким от об'єктом.
+// тепер коли він є його треба наповнити правильними значеннями дійсними, як це зробити..
+// якщо виникає якась подія! треба викликати метод calcTotalPrice, а щоб у поля price та quantity записались актуальні значення
+// створимо відповідну функцію, що буде оновляти поля цього об'єкту, беручи їх з атрибутів input-ов.
+
+const data = {
+    price: 0,
+    quantity: 0,
+    calcTotalPrice() {
+        return Number((this.price * this.quantity).toFixed(2));
+    },
+}
+fillData();//тут ми не з атрибутів беремо значення а з звичайного value.. і це буде тип даних "string", тому треба обернути у Number..
+console.log(data);
+
+refs.form.addEventListener("input", handleFormInput); // відслідковуємо будь які зміни на формі, які можуть відбутись у всіх input-ах;
+
+function handleFormInput({ target }) {
+    const { value } = target;
+    // console.log(target, value);
+    if (target === refs.quantity) {
+        refs.amount.textContent = value;
+    }
+    target.setAttribute("value", value); // Змінюємо значення атрибуту "value", на значення value з об'єкту, що є target-ом.
+    fillData();
+    displayTotal();
+}
+
+// у цієї функції не буде на вході event-у бо він є у колбек функціях
+function fillData() {
+    data.price = Number(refs.price.value);
+    data.quantity = Number(refs.quantity.value);
+}
+
+// створимо функцію, що буде оновлювати значення <p> з цифрою загальною вартості, вже підрахованої. І не забуваємо викликати
+// цю функцію у потрібному місці.. де воно?
+function displayTotal() {    
+    refs.total.textContent=data.calcTotalPrice() + "грн";
+};

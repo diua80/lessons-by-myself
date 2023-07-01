@@ -9,15 +9,27 @@
   </head>
   <body>
     <!-- Сіре тло під модальним віконцем -->
-    <div class="overlay" id="overlay"></div> 
+    <!-- <div class="overlay" id="overlay"></div>  -->
 
     <!--Саме модальне вікно-->
-    <div class="modal-window theme" id="modalWindow">
-      <p>this is modal</p>
-      <button class="close-btn" id="modalCloseBtn">close</button>
-    </div>
+    <!-- <div class="modal-window theme" id="modalWindow"> -->
+      <!-- <p>this is modal</p> -->
+      <!-- <button class="close-btn" id="modalCloseBtn">close</button> -->
+    <!-- </div> -->
 
     <!--Головна кн що відкриває модальне вікно-->
-    <button class="open-modal-btn theme" id="openModalBtn">open modal</button>
+    <!-- <button class="open-modal-btn theme" id="openModalBtn">open modal</button> -->
+
+    <!-- Задача калькулятор -->
+    <div class="container">
+      <h2 class="title">Скільки коштує м'ясо на шашлики?</h2>
+      <form action = "#" class="form" id = "form">
+        <label for="price"> Ціна в грн </label>
+        <input type="number" id="price" name="price" value="50">
+        <label for="quantity">Кількість<span class="amount" id="amount">1</span>кг</label>
+        <input type="range" id="quantity" name="quantity" value="1" min="1" max="20">
+      </form>
+      <p class="text-right total" id="total"></p>
+    </div>
   </body>
 </html>
