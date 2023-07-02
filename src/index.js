@@ -214,6 +214,8 @@ const data = {
 }
 fillData();//тут ми не з атрибутів беремо значення а з звичайного value.. і це буде тип даних "string", тому треба обернути у Number..
 console.log(data);
+displayTotal();
+refs.amount.textContent = data.quantity;
 
 refs.form.addEventListener("input", handleFormInput); // відслідковуємо будь які зміни на формі, які можуть відбутись у всіх input-ах;
 
